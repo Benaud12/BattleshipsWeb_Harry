@@ -1,11 +1,17 @@
+require_relative 'display'
+
 class Board
+	include Display
 	attr_reader :grid
 
-	def initialize(content)
+	def initialize(cell)
 		@grid = {}
 		[*"A".."J"].each do |l|
-			[*1..10].each {|n| @grid["#{l}#{n}".to_sym] = content.new}
-		end
+			[*1..10].each do |n|
+				@grid["#{l}#{n}".to_sym] = cell.new
+				@grid["#{l}#{n}".to_sym].content = Water.new
+			end
+ 		end
 	end
 
 	def place(ship, coord, orientation = :horizontally)

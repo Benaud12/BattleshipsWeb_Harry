@@ -1,9 +1,13 @@
 require 'sinatra/base'
 require_relative 'board'
 require_relative 'cell'
+require_relative 'ship'
+require_relative 'water'
 
 class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
+
+  enable :sessions
 
   get '/' do
     erb :index
@@ -14,9 +18,12 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/new_board' do
-    @board = Board.new(Cell).grid
-    erb :result
+    @board = Board.new(Cell).display_board
+    p @board
+    # erb :result
+    # session["board"] = @board
   end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'board'
+require 'cell'
 
 feature 'Starting a new game' do
   scenario 'I am asked to enter my name' do
@@ -19,5 +21,8 @@ feature 'Starting a new game' do
     fill_in 'name', with: 'Harry'
     click_button 'Submit'
     expect(current_url).to have_content('Harry')
+  end
+  scenario 'It will generate a new board' do
+
   end
 end
