@@ -2,19 +2,35 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+<<<<<<< HEAD
+=======
+    battleships (0.1.2)
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+<<<<<<< HEAD
     diff-lcs (1.2.5)
     extlib (0.9.16)
+=======
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
+    diff-lcs (1.2.5)
+    extlib (0.9.16)
+    ffi (1.9.10)
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
     highline (1.7.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     mime-types (2.6.2)
     mini_portile (0.6.2)
+<<<<<<< HEAD
+=======
+    multi_json (1.11.2)
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     rack (1.6.4)
@@ -37,6 +53,15 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.3.0)
+<<<<<<< HEAD
+=======
+    rubyzip (1.1.7)
+    selenium-webdriver (2.47.1)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.6)
@@ -48,6 +73,10 @@ GEM
       extlib (>= 0.9.5)
       highline (>= 1.4.0)
     tilt (2.0.1)
+<<<<<<< HEAD
+=======
+    websocket (1.2.2)
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -55,12 +84,22 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
+=======
+  battleships
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
   capybara
   launchy
   rspec
   rspec-sinatra
+<<<<<<< HEAD
   shotgun
   sinatra
 
 BUNDLED WITH
    1.10.6
+=======
+  selenium-webdriver
+  shotgun
+  sinatra
+>>>>>>> f7e2d870c1b260c42da1cc90b9b4abd362a5d0fb
