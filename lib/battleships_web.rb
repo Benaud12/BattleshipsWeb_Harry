@@ -18,10 +18,18 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/new_board' do
-    @board = Board.new(Cell).display_board
-    p @board
+    @board = Board.new(Cell)
+    session["board"] = @board
     # erb :result
-    # session["board"] = @board
+    erb :new_board
+  end
+
+  get '/place' do
+    # ship = Ship.destroyer
+    board = session["board"]
+    # board.place(ship, :D4)
+    @board = board.display_board
+    erb :result
   end
 
   # start the server if ruby file executed directly

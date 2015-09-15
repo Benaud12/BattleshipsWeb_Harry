@@ -1,14 +1,15 @@
 module Display
   def display_board
-    @water = ""
+    @htmlboard = "<div style='width: 600px'>"
     @grid.each do |key, value|
       if value.content.kind_of? Water
-        @water << "<div style='height: 10px; width: 10px; background-color: blue'></div>"
+        @htmlboard << "<div style='height: 58px; width: 58px; background-image: url(http://www.fisherboards.com/wp-content/uploads/2014/06/calm-water-311.jpg); float: left; border: 1px dotted red'></div>"
       else
-        @water << "<div style='height: 10px; width: 10px; background-color: red'></div>"
+        @htmlboard << "<div style='height: 23px; width: 23px; background-color: yellow; float: left; border: 1px dotted red'></div>"
       end
     end
-    @water
+    @htmlboard << "</div>"
+    @htmlboard
   end
 end
 
