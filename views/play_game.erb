@@ -12,7 +12,23 @@
 
 <body>
 
+<div>
 <h2> Welcome to the board, <%= @name %> </h2>
+</div>
+<div>
 <%= @board.display_board %>
+</div>
+<div>
+  <% if @aircraft_carrier != nil %>
+    Aircraft Carrier placed
+  <% else %>
+    <form action='/play_game' method='get'>
+      Place Aircraft Carrier
+      <input type='text' name='aircraft_carrier'>
+      <input type='submit' value='Place Ship'>
+    </form>
+   <% end %>
+</div>
+
 
 </body>

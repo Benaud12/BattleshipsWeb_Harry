@@ -33,7 +33,7 @@ feature 'Starting a new game' do
     fill_in 'name', with: 'Mike'
     click_button 'Submit'
     click_button 'Start Game'
-    expect(page).to have_css('div', count: 101)
+    expect(page).to have_css("div[id='water']", count: 100)
   end
   scenario 'I will welcome to you to the board' do
     visit '/new_game'
@@ -41,5 +41,14 @@ feature 'Starting a new game' do
     click_button 'Submit'
     click_button 'Start Game'
     expect(page).to have_content("Welcome to the board, Mike")
+  end
+  scenario 'Place an aircraft carrier' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'aircraft_carrier', with: "A1"
+    click_button 'Place Ship'
+    expect(page).to have_css("div[id='water']", count: 95)
   end
 end

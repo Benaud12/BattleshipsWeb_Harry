@@ -3,6 +3,7 @@ require_relative 'board'
 require_relative 'cell'
 require_relative 'ship'
 require_relative 'water'
+require_relative 'player'
 
 class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
@@ -23,8 +24,13 @@ class BattleshipsWeb < Sinatra::Base
 
   get '/play_game' do
     @board = Board.new(Cell)
-    session[:board] = @board
-    @name = session[:name]
+    session[:player].board = @board
+    @name = session[:player].name
+    @aircraft_carrier = params[:aircraft_carrier]
+    @aircraft_carrier = @aircraft_carrier.to_sym if params[:aircraft_carrier] != nil
+    if @aircraft_carrier
+      session[:player].board.place(Ship.aircraft_carrier, @aircraft_carrier)
+    end
     erb :play_game
   end
 
