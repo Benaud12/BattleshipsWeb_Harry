@@ -3,6 +3,11 @@ require 'board'
 require 'cell'
 
 feature 'Starting a new game' do
+
+  before (:each) do
+    $player = Player.new
+  end
+
   scenario 'I am asked to enter my name' do
     visit '/'
     click_link 'New Game'
@@ -42,7 +47,7 @@ feature 'Starting a new game' do
     click_button 'Start Game'
     expect(page).to have_content("Welcome to the board, Mike")
   end
-  scenario 'Place an aircraft carrier' do
+  scenario 'Place an aircraft carrier horizontally' do
     visit '/new_game'
     fill_in 'name', with: 'Mike'
     click_button 'Submit'
@@ -52,17 +57,17 @@ feature 'Starting a new game' do
     click_button 'Place Aircraft Carrier'
     expect(page).to have_css("div[id='water']", count: 95)
   end
-  scenario 'Place an aircraft carrier' do
+  scenario 'Place an aircraft carrier vertically' do
     visit '/new_game'
     fill_in 'name', with: 'Mike'
     click_button 'Submit'
     click_button 'Start Game'
-    fill_in 'aircraft_carrier', with: "F1"
+    fill_in 'aircraft_carrier', with: "F10"
     fill_in 'ac_orientation', with: "vertically"
     click_button 'Place Aircraft Carrier'
-    expect(page).to have_css("div[id='water']", count: 90)
+    expect(page).to have_css("div[id='water']", count: 95)
   end
-  scenario 'Place an Battleship' do
+  scenario 'Place a Battleship horizontally' do
     visit '/new_game'
     fill_in 'name', with: 'Mike'
     click_button 'Submit'
@@ -70,16 +75,77 @@ feature 'Starting a new game' do
     fill_in 'battleship', with: "B1"
     fill_in 'bs_orientation', with: "horizontally"
     click_button 'Place Battleship'
-    expect(page).to have_css("div[id='water']", count: 86)
+    expect(page).to have_css("div[id='water']", count: 96)
   end
-  scenario 'Place an Battleship' do
+  scenario 'Place a Battleship vertically' do
     visit '/new_game'
     fill_in 'name', with: 'Mike'
     click_button 'Submit'
     click_button 'Start Game'
-    fill_in 'battleship', with: "F5"
+    fill_in 'battleship', with: "F9"
     fill_in 'bs_orientation', with: "vertically"
     click_button 'Place Battleship'
-    expect(page).to have_css("div[id='water']", count: 82)
+    expect(page).to have_css("div[id='water']", count: 96)
   end
+  scenario 'Place a Submarine horizontally' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'submarine', with: "C1"
+    fill_in 'sb_orientation', with: "horizontally"
+    click_button 'Place Submarine'
+    expect(page).to have_css("div[id='water']", count: 97)
+  end
+  scenario 'Place a Submarine vertically' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'submarine', with: "F8"
+    fill_in 'sb_orientation', with: "vertically"
+    click_button 'Place Submarine'
+    expect(page).to have_css("div[id='water']", count: 97)
+  end
+  scenario 'Place a Destroyer horizontally' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'destroyer', with: "D1"
+    fill_in 'ds_orientation', with: "horizontally"
+    click_button 'Place Destroyer'
+    expect(page).to have_css("div[id='water']", count: 97)
+  end
+  scenario 'Place a Destroyer vertically' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'destroyer', with: "F7"
+    fill_in 'ds_orientation', with: "vertically"
+    click_button 'Place Destroyer'
+    expect(page).to have_css("div[id='water']", count: 97)
+  end
+  scenario 'Place a Patrol Boat horizontally' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'patrol_boat', with: "E1"
+    fill_in 'pb_orientation', with: "horizontally"
+    click_button 'Place Patrol Boat'
+    expect(page).to have_css("div[id='water']", count: 98)
+  end
+  scenario 'Place a Patrol Boat vertically' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'patrol_boat', with: "F6"
+    fill_in 'pb_orientation', with: "vertically"
+    click_button 'Place Patrol Boat'
+    expect(page).to have_css("div[id='water']", count: 98)
+  end
+
 end

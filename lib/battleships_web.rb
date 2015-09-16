@@ -39,6 +39,7 @@ class BattleshipsWeb < Sinatra::Base
     @submarine = session[:submarine]
     @destroyer = session[:destroyer]
     @patrol_boat = session[:patrol_boat]
+    @count_ships = $player.board.ships_count
     erb :play_game
   end
 
