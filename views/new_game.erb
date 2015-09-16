@@ -1,5 +1,14 @@
-<form action="new_game">
-"What's your name?"
-<input type="text" name="name" required>
-<input type="submit" value="Submit">
+<body>
+<% if @name %>
+  Welcome to BattleshipsWeb, <%= @name %>
+  <form action="/play_game" method="get">
+    <input type="submit" value="Start Game">
+  </form>
+<% else %>
+<form action="/new_game">
+  "What's your name?"
+  <input type="text" name="name" required>
+  <input type="submit" value="Submit">
 </form>
+<% end %>
+</body>
