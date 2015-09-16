@@ -48,7 +48,38 @@ feature 'Starting a new game' do
     click_button 'Submit'
     click_button 'Start Game'
     fill_in 'aircraft_carrier', with: "A1"
-    click_button 'Place Ship'
+    fill_in 'ac_orientation', with: "horizontally"
+    click_button 'Place Aircraft Carrier'
     expect(page).to have_css("div[id='water']", count: 95)
+  end
+  scenario 'Place an aircraft carrier' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'aircraft_carrier', with: "F1"
+    fill_in 'ac_orientation', with: "vertically"
+    click_button 'Place Aircraft Carrier'
+    expect(page).to have_css("div[id='water']", count: 90)
+  end
+  scenario 'Place an Battleship' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'battleship', with: "B1"
+    fill_in 'bs_orientation', with: "horizontally"
+    click_button 'Place Battleship'
+    expect(page).to have_css("div[id='water']", count: 86)
+  end
+  scenario 'Place an Battleship' do
+    visit '/new_game'
+    fill_in 'name', with: 'Mike'
+    click_button 'Submit'
+    click_button 'Start Game'
+    fill_in 'battleship', with: "F5"
+    fill_in 'bs_orientation', with: "vertically"
+    click_button 'Place Battleship'
+    expect(page).to have_css("div[id='water']", count: 82)
   end
 end

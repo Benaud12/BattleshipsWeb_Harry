@@ -12,23 +12,69 @@
 
 <body>
 
-<div>
+<header>
 <h2> Welcome to the board, <%= @name %> </h2>
-</div>
+</header>
 <div>
 <%= @board.display_board %>
 </div>
-<div>
+<aside style="float: left; padding-left: 10px">
   <% if @aircraft_carrier != nil %>
     Aircraft Carrier placed
   <% else %>
     <form action='/play_game' method='get'>
       Place Aircraft Carrier
-      <input type='text' name='aircraft_carrier'>
-      <input type='submit' value='Place Ship'>
+      <input type='text' name='aircraft_carrier' required>
+      Aircraft Carrier Orientation
+      <input type='text' name='ac_orientation' required>
+      <input type='submit' value='Place Aircraft Carrier'>
     </form>
    <% end %>
-</div>
+   <% if @battleship != nil %>
+     Battleship placed
+   <% else %>
+     <form action='/play_game' method='get'>
+       Place Battleship
+       <input type='text' name='battleship' required>
+       Battleship Orientation
+       <input type='text' name='bs_orientation' required>
+       <input type='submit' value='Place Battleship'>
+     </form>
+    <% end %>
+    <% if @submarine != nil %>
+      Submarine placed
+    <% else %>
+      <form action='/play_game' method='get'>
+        Place Submarine
+        <input type='text' name='submarine' required>
+        Submarine Orientation
+        <input type='text' name='sb_orientation' required>
+        <input type='submit' value='Place Submarine'>
+      </form>
+     <% end %>
+     <% if @destroyer != nil %>
+       Destroyer placed
+     <% else %>
+       <form action='/play_game' method='get'>
+         Place Destroyer
+         <input type='text' name='destroyer' required>
+         Destroyer Orientation
+         <input type='text' name='ds_orientation' required>
+         <input type='submit' value='Place Destroyer'>
+       </form>
+      <% end %>
+      <% if @patrol_boat != nil %>
+        Patrol Boat placed
+      <% else %>
+        <form action='/play_game' method='get'>
+          Place Patrol Boat
+          <input type='text' name='patrol_boat' required>
+          Patrol Boat Orientation
+          <input type='text' name='pb_orientation' required>
+          <input type='submit' value='Place Patrol Boat'>
+        </form>
+       <% end %>
+</aside>
 
 
 </body>
